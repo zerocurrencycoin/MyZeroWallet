@@ -15,10 +15,10 @@ export default class ZFooter extends React.Component {
   }
 
   render () {
-    return (      
+    return (
       <div style={footer}>
         <br/>
-        <Container>      
+        <Container>
         <Row>
           <Col md="8">
             <p>MAKE SURE YOU ARE ON <b>WWW.MYBITCOINZWALLET.COM AND BOOKMARK IT</b></p>
@@ -27,10 +27,10 @@ export default class ZFooter extends React.Component {
 
           </Col>
           <Col md="4">
-            <a href="https://www.bitcoinz.site/" target="_blank">website</a><br/>
+            <a href="https://btcz.rocks/" target="_blank">website</a><br/>
             <a href="https://bitcointalk.org/index.php?topic=2166510.0" target="_blank">ANN</a><br/>
-            <a href="https://github.com/anthony19114/mybitcoinzwallet" target="_blank">github</a><br/>
-            <a href="https://slack.bitcoinz.site/" target="_blank">slack</a><br/>
+            <a href="https://github.com/egyptianbman/mybitcoinzwallet" target="_blank">github</a><br/>
+            <a href="https://slack.btcz.rocks/" target="_blank">slack</a><br/>
           </Col>
         </Row>
         </Container>
