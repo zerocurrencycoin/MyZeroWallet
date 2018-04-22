@@ -223,8 +223,8 @@ class ZWalletUnlockKey extends React.Component {
                 />
               </Label>
               <FormText color="muted">
-                For Windows, it should be in %APPDATA%/bitcoinz<br/>
-                For Mac/Linux, it should be in ~/.bitcoinz
+                For Windows, it should be in %APPDATA%/zero<br/>
+                For Mac/Linux, it should be in ~/.zero
               </FormText>
             </Col>
           </FormGroup>
@@ -286,7 +286,7 @@ class ZWalletSettings extends React.Component {
   render () {
     return (
       <Modal isOpen={this.props.settings.showSettings} toggle={this.props.toggleModalSettings}>
-        <ModalHeader toggle={this.props.toggleShowSettings}>BitcoinZ Wallet Settings</ModalHeader>
+        <ModalHeader toggle={this.props.toggleShowSettings}>Zero Wallet Settings</ModalHeader>
         <ModalBody>
           <ZWalletSelectUnlockType
               setUnlockType={this.props.setUnlockType}
@@ -911,7 +911,7 @@ class ZWalletTabs extends React.Component {
     var now = new Date();
     now = now.toISOString().split('.')[0]+'Z';
 
-    var fileStr = '# Wallet dump created by myBitcoinZwallet ' + pjson.version + '\n'
+    var fileStr = '# Wallet dump created by myZeroWallet ' + pjson.version + '\n'
     fileStr += '# Created on ' + now + '\n\n\n'
 
     Object.keys(this.props.publicAddresses).forEach(function(key) {
@@ -921,7 +921,7 @@ class ZWalletTabs extends React.Component {
     }.bind(this))
 
     const pkBlob = new Blob([fileStr], {type: 'text/plain;charset=utf-8'})
-    FileSaver.saveAs(pkBlob, now + '_mybitcoinzwallet_private_keys.txt')
+    FileSaver.saveAs(pkBlob, now + '_myZerowallet_private_keys.txt')
   }
 
   render () {
@@ -1013,8 +1013,8 @@ export default class ZWallet extends React.Component {
         showSettings: false,
         showWalletGen: false,
         compressPubKey: true,
-        insightAPI: 'https://explorer.btcz.rocks/api/',
-        explorerURL: 'https://explorer.btcz.rocks/',
+        insightAPI: 'https://zero-insight.mining4.co.uk/insight-api-zcash/',
+        explorerURL: 'https://zero-insight.mining4.co.uk/',
         useTestNet: false,
         unlockType: UNLOCK_WALLET_TYPE.HD_WALLET
       }
@@ -1147,12 +1147,12 @@ export default class ZWallet extends React.Component {
     _settings.useTestNet = !_settings.useTestNet
 
     if (_settings.useTestNet){
-      _settings.insightAPI = 'https://explorer.btcz.rocks/insight-api-zcash/'
-      _settings.explorerURL = 'https://explorer.btcz.rocks/'
+      _settings.insightAPI = 'https://zero-insight.mining4.co.uk/insight-api-zcash/'
+      _settings.explorerURL = 'https://zero-insight.mining4.co.uk/'
     }
     else{
-      _settings.insightAPI = 'https://explorer.btcz.rocks/insight-api-zcash/'
-      _settings.explorerURL = 'https://explorer.btcz.rocks/'
+      _settings.insightAPI = 'https://zero-insight.mining4.co.uk/insight-api-zcash/'
+      _settings.explorerURL = 'https://zero-insight.mining4.co.uk/'
     }
 
     this.setState({
@@ -1183,7 +1183,7 @@ export default class ZWallet extends React.Component {
       <Container>
         <Row>
           <Col>
-            <h1 className='display-6'>BitcoinZ Wallet&nbsp;
+            <h1 className='display-6'>Zero Wallet&nbsp;
               <ToolTipButton onClick={this.toggleShowSettings} id={1} buttonText={<MDSettings/>} tooltipText={'settings'}/>&nbsp;
               <ToolTipButton disabled={this.state.publicAddresses === null} onClick={this.resetKeys} id={2} buttonText={<FARepeat/>} tooltipText={'reset wallet'}/>
             </h1>
