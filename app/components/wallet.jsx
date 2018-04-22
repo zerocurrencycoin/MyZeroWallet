@@ -1147,7 +1147,7 @@ export default class ZWallet extends React.Component {
     _settings.useTestNet = !_settings.useTestNet
 
     if (_settings.useTestNet){
-      _settings.insightAPI = 'https://zero-insight.mining4.co.uk/'
+      _settings.insightAPI = 'https://zero-insight.mining4.co.uk/insight-api-zcash/'
       _settings.explorerURL = 'https://zero-insight.mining4.co.uk/'
     }
     else{
