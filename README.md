@@ -9,7 +9,7 @@ Initial commit is beta, working. The commit is neccesary that the community can 
 
 Please post issues, concerns, comments, and pull requests.
 
-myzerowallet a client-side browser based wallet for Zero [ZER] based on
+MyZeroWallet a client-side browser based wallet for Zero [ZER] based on
 MyZENWallet which is the original client-side browser-based wallet for ZenCASH.
 
 # Adapted
