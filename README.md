@@ -1,4 +1,4 @@
-# www.myzerowallet.com
+# https://wallet.zeromachine.io/
 ZERO is a revolutionary cryptocurrency and transaction platform based on Zcash.
 ZERO combines Bitcoin’s security with Zcash’s anonymity and privacy.
 ZERO stands out from the competition as a fully working product that has already implemented a set of special features not found in any other cryptocurrency.
