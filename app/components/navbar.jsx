@@ -16,13 +16,13 @@ export default class ZNavbar extends React.Component {
       isOpen: !this.state.isOpen
     })
   }
-  
+
   render () {
     return (
       <Navbar color='faded' light toggleable>
         <NavbarToggler right onClick={this.toggleNavbar} />
         <NavbarBrand href='/'>
-          <img src="/favicon.ico" height={42}/>&nbsp;www.mybitcoinzwallet.com
+          <img src="/favicon.ico" height={42}/>&nbsp;wallet.zeromachine.io
         </NavbarBrand>
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav className='ml-auto' navbar>
@@ -35,10 +35,10 @@ export default class ZNavbar extends React.Component {
               <NavLink href='/guide.html'>
                 GETTING STARTED
               </NavLink>
-            </NavItem>                      
+            </NavItem>
           </Nav>
         </Collapse>
-      </Navbar>  
+      </Navbar>
     )
   }
 }

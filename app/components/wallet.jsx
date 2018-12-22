@@ -179,7 +179,7 @@ class ZWalletUnlockKey extends React.Component {
       // Get reader results in bytes
       var dataHexStr = reader.result
 
-      // Retrieve private keys from wallet.dat
+      // Retrieve private keys from wallet.zero
       // Source: https://gist.github.com/moocowmoo/a715c80399bb202a65955771c465530c
       var re = /\x30\x81\xD3\x02\x01\x01\x04\x20(.{32})/gm
       var privateKeys = dataHexStr.match(re)
@@ -213,7 +213,7 @@ class ZWalletUnlockKey extends React.Component {
           <FormGroup row>
             <Col>
               {this.state.invalidPrivateKey ? <Alert color="danger"><strong>Error.</strong>&nbsp;Keys in files are corrupted</Alert> : ''}
-              <Label for="walletDatFile" className="btn btn-block btn-secondary" style={this.state.inputFileStyle}>Select wallet.dat file
+              <Label for="walletDatFile" className="btn btn-block btn-secondary" style={this.state.inputFileStyle}>Select wallet.zero file
                 <Input
                   style={{display: 'none'}}
                   type="file"
@@ -294,15 +294,15 @@ class ZWalletSettings extends React.Component {
             />
         </ModalBody>
         <ModalBody>
+          <Label>Insight API</Label>
           <InputGroup>
-            <InputGroupAddon>Insight API</InputGroupAddon>
             <Input
               value={this.props.settings.insightAPI}
               onChange={(e) => this.props.setInsightAPI(e.target.value)}
             />
           </InputGroup><br/>
           <Row>
-            <Col sm="6">
+            <Col sm="6" style={{marginLeft: '15px' }}>
               <Label check>
                 <Input
                   disabled={!(this.props.publicAddresses === null)}
@@ -312,7 +312,9 @@ class ZWalletSettings extends React.Component {
                 Compress Public Key
               </Label>
             </Col>
-            <Col sm="6">
+          </Row>
+          <Row>
+            <Col sm="6" style={{marginLeft: '15px' }}>
               <Label check>
                 <Input
                   defaultChecked={this.props.settings.showWalletGen} type="checkbox"
@@ -321,19 +323,21 @@ class ZWalletSettings extends React.Component {
                 Show Address Generator
               </Label>
             </Col>
+
           </Row>
         </ModalBody>
-        <ModalFooter>
-          <Label>
-            <Input
-              disabled={!(this.props.publicAddresses === null)}
-              defaultChecked={this.props.settings.useTestNet} type="checkbox"
-              onChange={this.props.toggleUseTestNet}
-            />{' '}
-            testnet
-          </Label>
-        </ModalFooter>
-      </Modal>
+        </Modal>
+        //<ModalFooter>
+          //<Label>
+          //  <Input
+          //    disabled={!(this.props.publicAddresses === null)}
+          //    defaultChecked={this.props.settings.useTestNet} type="checkbox"
+          //    onChange={this.props.toggleUseTestNet}
+          //  />{' '}
+          //  testnet
+          //</Label>
+        //</ModalFooter>
+      //</Modal>
     )
   }
 }
@@ -436,6 +440,7 @@ class ZAddressInfo extends React.Component {
       Header: 'Address',
       accessor: 'address',
       resizable: true,
+      width: 400,
       Cell: props => <a href={this.getAddressBlockExplorerURL(props.value)} target="_blank">{props.value}</a>
     }, {
       Header: 'Confirmed',
