@@ -1,16 +1,18 @@
-var bitcoinjs = require('bitcoinjs-lib');
-var bip32utils = require('bip32-utils');
-var zencashjs = require('btczjs');
-var bs58check = require('bs58check');
+var bitcoinjs = require('bitgo-utxo-lib')
+var bip32utils = require('bip32-utils')
 
 // Hierarchical Deterministic wallet
 function phraseToHDWallet(phraseStr) {
   // Seed key, make it fucking strong
   // phraseStr: string
-  const seedHex = Buffer.from(phraseStr).toString('hex')
+  const seedHex = Buffer.from(phraseStr.slice(0, 64)).toString('hex')
+
+  //Set Network
+  let network = bitcoinjs.networks['zer']
+  //console.log('Network ' + network)
 
   // chains
-  const hdNode = bitcoinjs.HDNode.fromSeedHex(seedHex)
+  const hdNode = bitcoinjs.HDNode.fromSeedHex(seedHex, network)
   var chain = new bip32utils.Chain(hdNode)
 
   // Creates 42 address from the same chain
@@ -20,11 +22,10 @@ function phraseToHDWallet(phraseStr) {
 
   // Get private keys from them
   var privateKeys = chain.getAll().map((x) => chain.derive(x).keyPair.toWIF())
-  
+
   return privateKeys
 }
 
-
 module.exports = {
-  phraseToHDWallet: phraseToHDWallet  
+  phraseToHDWallet: phraseToHDWallet
 }
